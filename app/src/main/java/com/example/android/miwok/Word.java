@@ -7,7 +7,7 @@ public class Word {
 
     public Word(String defaultTransaltion, String MiwokTranslation) {
         this.mDefaultTranslation = defaultTransaltion;
-        this.mMiwokTranslation = mMiwokTranslation;
+        this.mMiwokTranslation = MiwokTranslation;
     }
 
     //Get the default translation of the word
