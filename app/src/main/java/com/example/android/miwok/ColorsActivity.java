@@ -24,7 +24,7 @@ import java.util.ArrayList;
         colors.add(new Word("dusty yellow", "topiisa", R.drawable.color_dusty_yellow));
         colors.add(new Word("mustard yellow", "chiwiita", R.drawable.color_mustard_yellow));
 
-        WordAdapter adapter_colors = new WordAdapter(this, colors);
+        WordAdapter adapter_colors = new WordAdapter(this, colors, R.color.category_colors);
 
         ListView listViewColors = (ListView) findViewById(R.id.list);
         listViewColors.setAdapter(adapter_colors);

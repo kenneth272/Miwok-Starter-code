@@ -50,5 +50,4 @@
         android:text="@string/category_phrases"
         android:onClick="openPhrasesList"/>
 
-
 </LinearLayout>
