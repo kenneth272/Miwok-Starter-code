@@ -30,18 +30,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //Find the views that shows the family category
-        TextView family = (TextView) findViewById(R.id.family);
+            //Find the views that shows the family category
+            TextView family = (TextView) findViewById(R.id.family);
 
-        //Set on clickListener on that view
-        family.setOnClickListener(new View.OnClickListener(){
+            //Set on clickListener on that view
+            family.setOnClickListener(new View.OnClickListener(){
 
-            @Override
-            public void onClick(View view) {
-                Intent familyIntent = new Intent(MainActivity.this, FamilyActivity.class);
-                startActivity(familyIntent);
-            }
-        });
+                @Override
+                public void onClick(View view) {
+                    Intent familyIntent = new Intent(MainActivity.this, FamilyActivity.class);
+                    startActivity(familyIntent);
+                }
+            });
 
         //Find the views that shows the colors category
         TextView colors = (TextView) findViewById(R.id.colors);
