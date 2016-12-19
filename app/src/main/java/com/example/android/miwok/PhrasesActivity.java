@@ -16,6 +16,14 @@ public class PhrasesActivity extends AppCompatActivity {
 
     private MediaPlayer mMediaPlayer;
 
+    //listener gets triggered when the mediaplayer has completed playing the audio file
+    private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mp) {
+            releaseMediaPlayer();
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,9 +53,21 @@ public class PhrasesActivity extends AppCompatActivity {
 
                 mMediaPlayer = MediaPlayer.create(PhrasesActivity.this, phrase.getAudioResourceId());
                 mMediaPlayer.start();
+
+                //Setup a listner on the mediaplayer, so that we can stop and release the
+                //mediaplyer once the souund has finished playing
+                mMediaPlayer.setOnCompletionListener(mCompletionListener);
             }
         });
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        //When activity is stopped, release media player resources
+        releaseMediaPlayer();
+    }
+
     private void releaseMediaPlayer() {
         //If mediaplayer is not null, it maybe currently playing a sound
         if (mMediaPlayer != null) {

@@ -54,6 +54,11 @@ public class NumbersActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Word word = words.get(position);
 
+                //Release Release the media player if it currently exists because we are about to
+                // play a different sound file
+                releaseMediaPlayer();
+
+                //Create & setup the mediaplayer for the audio resources
                 mMediaPlayer = MediaPlayer.create(NumbersActivity.this, word.getAudioResourceId());
                 mMediaPlayer.start();
 
@@ -64,6 +69,12 @@ public class NumbersActivity extends AppCompatActivity {
 
             }
         });
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        //When activity is stopped, release media player resources
+        releaseMediaPlayer();
     }
 
         //Clean up the media player by releasing its resources
