@@ -10,7 +10,7 @@ public class NumbersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity);
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.text_container, new NumbersFragment())
+                .replace(R.id.container, new NumbersFragment())
                 .commit();
     }
 }
